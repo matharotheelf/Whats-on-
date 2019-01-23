@@ -1,5 +1,6 @@
 let whatsOn = new EventList("WhatsOn")
 
+
 var SubmitEvent = document.getElementById("SubmitEvent")
 
 function openInput() {
@@ -22,6 +23,7 @@ SubmitEvent.onclick = function() {
   openInput()
   listEvents()
   console.log(whatsOn.list)
+  console.log(whatsOn)
 };
 
 function listEvents() {
