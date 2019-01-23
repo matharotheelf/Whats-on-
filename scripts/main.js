@@ -27,7 +27,7 @@ SubmitEvent.onclick = function() {
 function listEvents() {
   var str = '<ul style="list-style-type:none">'
 
-  whatsOn.list.forEach(function(event) {
+  whatsOn.chronologicallist().forEach(function(event) {
     str += '<li>' + event.name + " " + event.date + '</li>';
   });
 
