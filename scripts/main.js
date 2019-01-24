@@ -1,7 +1,7 @@
 let whatsOn = new EventList("WhatsOn")
 
-
-var SubmitEvent = document.getElementById("SubmitEvent")
+var SubmitEvent = document.getElementById("SubmitEvent");
+var weatherButton=document.getElementById("Seeweather");
 
 function openInput() {
 var x = document.getElementById("PostEvent");
@@ -23,7 +23,6 @@ SubmitEvent.onclick = function() {
   openInput()
   listEvents()
   console.log(whatsOn.list)
-  console.log(whatsOn)
 };
 
 function listEvents() {
@@ -38,3 +37,15 @@ function listEvents() {
   document.getElementById("eventList").innerHTML = str;
 
 }
+
+weatherButton.addEventListener('click', function () {
+   var city = document.getElementById("cityname");
+   var weatherDiv = document.getElementById("weatherDiv");
+   var request = new XMLHttpRequest();
+   request.open('GET', "http://api.openweathermap.org/data/2.5/weather?q=" + city.value + "&APPID=9a282a7c672d2ce76ceed0ffe8323722", true);
+   request.onload = function () {
+     var result = JSON.parse(this.response);
+     weatherDiv.innerText = `${result.weather[0].description} ${result.main.temp_max - 273.15}`
+   }
+   request.send();
+ })
