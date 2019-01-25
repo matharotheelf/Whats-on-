@@ -29,7 +29,7 @@ function listEvents() {
   var str = '<ul style="list-style-type:none">'
 
   whatsOn.chronologicallist().forEach(function(event) {
-    str += '<li>' + event.name + " " + event.date + '</li>';
+    str += '<li>' + event.shortenedstring() + " " + event.date + '</li>';
   });
 
   str += '</ul>';
