@@ -1,4 +1,4 @@
-let whatsOn = new EventList("WhatsOn")
+whatsOn = new EventList("WhatsOn");
 
 var SubmitEvent = document.getElementById("SubmitEvent");
 var weatherButton=document.getElementById("Seeweather");
