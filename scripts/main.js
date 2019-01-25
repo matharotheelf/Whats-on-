@@ -1,4 +1,17 @@
+if(localStorage.getItem('eventlist')) {
+  eventList = JSON.parse(localStorage.getItem('eventlist'));
+}
+else {
+  eventList = []
+}
+
 whatsOn = new EventList("WhatsOn");
+
+eventList.forEach(function(element){
+  whatsOn.addEvent(element[0],element[1])
+})
+
+listEvents()
 
 var SubmitEvent = document.getElementById("SubmitEvent");
 var weatherButton=document.getElementById("Seeweather");
@@ -13,9 +26,11 @@ x.style.display = "none";
 }
 
 function postEvent() {
-  var name = document.getElementById("eventnamepost").value
-  var date = document.getElementById("datepost").value
-  whatsOn.addEvent(name, date)
+  var name = document.getElementById("eventnamepost").value;
+  var date = document.getElementById("datepost").value;
+  whatsOn.addEvent(name, date);
+  eventList.push([name, date]);
+  localStorage.setItem('eventlist', JSON.stringify(eventList));
 }
 
 SubmitEvent.onclick = function() {
