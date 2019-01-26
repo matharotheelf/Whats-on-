@@ -44,7 +44,7 @@ function listEvents() {
   var str = '<ul style="list-style-type:none">'
 
   whatsOn.chronologicallist().forEach(function(event) {
-    str += '<li>' + event.shortenedstring() + " " + event.date + '</li>';
+    str += '<li>' + '<a href=file:///Users/admin/projects/whats-on-/singleevent.html?param1=' + event.name + '>' + event.shortenedstring()+ '</a>'+ " " + event.date + '</li>';
   });
 
   str += '</ul>';
@@ -58,7 +58,7 @@ weatherButton.addEventListener('click', function () {
    var weatherDiv = document.getElementById("weatherDiv");
    var request = new XMLHttpRequest();
    var mykey = config.MY_KEY;
-   request.open('GET', "http://api.openweathermap.org/data/2.5/weather?q=" + city.value + "&APPID=" + mykey, true);
+   request.open('GET', "http://api.openweathermap.org'/data/2.5/weather?q=" + city.value + "&APPID=" + mykey, true);
    request.onload = function () {
      var result = JSON.parse(this.response);
      weatherDiv.innerText = `${result.weather[0].description} ${result.main.temp_max - 273.15}`
