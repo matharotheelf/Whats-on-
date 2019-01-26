@@ -58,7 +58,7 @@ weatherButton.addEventListener('click', function () {
    var weatherDiv = document.getElementById("weatherDiv");
    var request = new XMLHttpRequest();
    var mykey = config.MY_KEY;
-   request.open('GET', "http://api.openweathermap.org'/data/2.5/weather?q=" + city.value + "&APPID=" + mykey, true);
+   request.open('GET', "http://api.openweathermap.org/data/2.5/weather?q=" + city.value + "&APPID=" + mykey, true);
    request.onload = function () {
      var result = JSON.parse(this.response);
      weatherDiv.innerText = `${result.weather[0].description} ${result.main.temp_max - 273.15}`
